@@ -29,8 +29,12 @@ const App = () => {
     };
 
     return (
-        <Router>
-            <nav className="p-4 bg-gray-800 text-white">
+        <Router 
+        future={{
+            v7_relativeSplatPath: true,
+            v7_startTransition: true
+        }}>
+            <nav className="fixed w-full z-50 p-4 bg-gray-800 text-white">
               <div className="container mx-auto">
                 <ul className="flex justify-between p-4 text-2xl">
                     <li><Link to="/">Products</Link></li>

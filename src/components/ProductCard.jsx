@@ -16,7 +16,7 @@ function Products({ cart, addToCart }) {
     }, []);
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 pt-[150px] pb-[50px]">
             <h1 className="text-2xl font-bold mb-4">Products</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {products.length > 0 ? (
@@ -24,7 +24,10 @@ function Products({ cart, addToCart }) {
                         <div key={product.id} className="border p-4 rounded shadow-md relative pb-20">
                             <img src={product.image} alt={product.title} className="h-40 object-contain mx-auto" />
                             <h2 className="text-lg font-semibold mt-2">{product.title}</h2>
-                            <p className="text-gray-700">${product.price}</p>
+                            <div className="flex justify-between p-2">
+                                <p className="text-gray-700">${product.price}</p>
+                                <p>Count: {product.rating.count}</p>
+                            </div>
                             <button
                                 onClick={() => addToCart(product)}
                                 className="absolute bottom-[5%] left-[50%] translate-x-[-50%] mt-2 p-2
@@ -35,7 +38,8 @@ function Products({ cart, addToCart }) {
                         </div>
                     ))
                 ) : (
-                    <p>Loading products...</p>
+                    <p className="fixed bottom-[50%] left-[50%] translate-x-[-50%] translate-y-[50%]">Processing...</p>
+
                 )}
             </div>
         </div>
